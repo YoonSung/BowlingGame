@@ -8,7 +8,7 @@ public class Frame {
 	
 	Frame(int frameNumber) {
 		this.frameNumber = frameNumber;
-		score = new Score(frameNumber);
+		score = new Score();
 	}
 
 	int getFrameNumber() {

@@ -8,7 +8,6 @@ import com.rbgroup.print.ConsolePrinter;
 public class Game {
 	
 	private static Game instance = new Game();
-	
 	private List<Frame> frames = new ArrayList<Frame>(10);
 	
 	Game() {

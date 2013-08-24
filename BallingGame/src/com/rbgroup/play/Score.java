@@ -5,19 +5,13 @@ import java.util.List;
 
 public class Score {
 
-	int frameNumber;
 	List<Integer> scores;
 	int capacity = 2;
 	
-	Score(int frameNumber) {
-		this.frameNumber = frameNumber;
+	Score() {
 		scores = new ArrayList<Integer>(capacity);
 	}
 	
-	int getFrameNumber() {
-		return frameNumber;
-	}
-
 	void addScore(int shootNumber) throws ExceedRollingException {
 		if (scores.size() >= capacity)
 			throw new ExceedRollingException(shootNumber);
