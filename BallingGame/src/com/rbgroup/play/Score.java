@@ -1,11 +1,12 @@
 package com.rbgroup.play;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Score {
 
 	int frameNumber;
-	ArrayList<Integer> scores;
+	List<Integer> scores;
 	int capacity = 2;
 	
 	Score(int frameNumber) {

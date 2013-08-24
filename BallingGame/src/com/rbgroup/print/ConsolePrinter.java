@@ -1,20 +1,20 @@
 package com.rbgroup.print;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.rbgroup.play.Frame;
 
 public class ConsolePrinter implements Printer{
 
 	public static String NEW_LINE = System.getProperty("line.separator");
-	private ArrayList<Frame> frames;
+	private List<Frame> frames;
 	
 	@Override
 	public void print() {
 		frameScreen(3);
 	}
 
-	public ConsolePrinter(ArrayList<Frame> frames) {
+	public ConsolePrinter(List<Frame> frames) {
 		this.frames = frames;
 	}
 	

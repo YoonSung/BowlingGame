@@ -1,5 +1,7 @@
 package com.rbgroup.play;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.rbgroup.print.ConsolePrinter;
 
 
@@ -7,7 +9,7 @@ public class Game {
 	
 	private static Game instance = new Game();
 	
-	private ArrayList<Frame> frames = new ArrayList<Frame>(10);
+	private List<Frame> frames = new ArrayList<Frame>(10);
 	
 	Game() {
 		initialize();
