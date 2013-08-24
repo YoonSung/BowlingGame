@@ -2,7 +2,7 @@ package com.rbgroup.play;
 
 
 public class Frame {
-
+	
 	int frameNumber;
 	Score score;
 	
@@ -17,6 +17,10 @@ public class Frame {
 	
 	void roll(int shootNumber) {
 		score.addScore(shootNumber);
+	}
+	
+	int getScore() {
+		return score.getScore();
 	}
 
 	@Override

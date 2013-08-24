@@ -5,17 +5,29 @@ import java.util.ArrayList;
 public class Score {
 
 	int frameNumber;
-	ArrayList<Integer> score;
+	ArrayList<Integer> scores;
+	int capacity = 2;
+	
 	public Score(int frameNumber) {
 		this.frameNumber = frameNumber;
-		score = new ArrayList<Integer>(2);
+		scores = new ArrayList<Integer>(capacity);
 	}
 	
 	int getFrameNumber() {
 		return frameNumber;
 	}
 
-	public void addScore(int shootNumber) {
-		score.add(shootNumber);
+	public void addScore(int shootNumber) throws ExceedRollingException {
+		if (scores.size() >= capacity)
+			throw new ExceedRollingException(shootNumber);
+		scores.add(shootNumber);
+	}
+
+	public int getScore() {
+		int currentScore = 0;
+		for (Integer score : scores) {
+			currentScore += score;
+		}
+		return currentScore;
 	}
 }

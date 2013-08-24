@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import com.rbgroup.play.Frame;
 
-
-
 public class ConsolePrinter implements Printer{
 
 	public static String NEW_LINE = System.getProperty("line.separator");

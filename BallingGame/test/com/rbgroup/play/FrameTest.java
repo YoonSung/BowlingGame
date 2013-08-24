@@ -11,6 +11,7 @@ public class FrameTest {
 
 	Game screen;
 	Frame firstFrame, secondFrame, thirdFrame; 
+	
 	@Before
 	public void init() {
 		Game.getInstance();
@@ -24,5 +25,12 @@ public class FrameTest {
 		assertThat(firstFrame.getFrameNumber(), is(1));
 		assertThat(secondFrame.getFrameNumber(), is(2));
 		assertThat(thirdFrame.getFrameNumber(), is(3));
+	}
+	
+	@Test(expected=ExceedRollingException.class)
+	public void roll() {
+		firstFrame.roll(3);
+		firstFrame.roll(4);
+		firstFrame.roll(5);
 	}
 }
