@@ -1,47 +1,26 @@
+package com.rbgroup.print;
+
 import java.util.ArrayList;
 
+import com.rbgroup.play.Frame;
 
-public class ScoreBoard {
-	
-	private static ScoreBoard instance = new ScoreBoard();
+
+
+public class ConsolePrinter implements Printer{
+
 	public static String NEW_LINE = System.getProperty("line.separator");
+	private ArrayList<Frame> frames;
 	
-	private ArrayList<Frame> frames = new ArrayList<Frame>(12);
-	
-	public ScoreBoard() {
-		initialize();
-	}
-	
-	public Frame getFrame(int frameNumber) {
-		return frames.get(frameNumber);
-	}
-	
-	public int getFrameSize() {
-		return frames.size();
-	}
-	
-	private void initialize() {
-		frames.add(new Frame(1));
-		frames.add(new Frame(2));
-		frames.add(new Frame(3));
-		frames.add(new Frame(4));
-		frames.add(new Frame(5));
-		frames.add(new Frame(6));
-		frames.add(new Frame(7));
-		frames.add(new Frame(8));
-		frames.add(new Frame(9));
-		frames.add(new Frame(10));
+	@Override
+	public void print() {
+		frameScreen(3);
 	}
 
-	public static ScoreBoard getInstance(){
-		return instance;
+	public ConsolePrinter(ArrayList<Frame> frames) {
+		this.frames = frames;
 	}
 	
-	public String screenPrint(int currentFrameNumber){
-		return frameScreen(currentFrameNumber);
-	}
-	
-	public String frameScreen(int currentFrameNumber) {
+	public void frameScreen(int currentFrameNumber) {
 		StringBuilder sb = new StringBuilder();
 
 
@@ -49,7 +28,7 @@ public class ScoreBoard {
 		sb.append(frameScorePrint(currentFrameNumber));
 		sb.append(frameAccumulatedScorePrint(currentFrameNumber));
 	
-		return sb.toString();
+		System.out.println(sb.toString());
 	}
 
 	private String frameAccumulatedScorePrint(int currentFrameNumber) {
@@ -146,4 +125,4 @@ public class ScoreBoard {
 		
 		return sb.toString();
 	}
-}	
+}
