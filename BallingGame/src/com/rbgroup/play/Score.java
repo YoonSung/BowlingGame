@@ -8,7 +8,7 @@ public class Score {
 	ArrayList<Integer> scores;
 	int capacity = 2;
 	
-	public Score(int frameNumber) {
+	Score(int frameNumber) {
 		this.frameNumber = frameNumber;
 		scores = new ArrayList<Integer>(capacity);
 	}
@@ -17,13 +17,13 @@ public class Score {
 		return frameNumber;
 	}
 
-	public void addScore(int shootNumber) throws ExceedRollingException {
+	void addScore(int shootNumber) throws ExceedRollingException {
 		if (scores.size() >= capacity)
 			throw new ExceedRollingException(shootNumber);
 		scores.add(shootNumber);
 	}
 
-	public int getScore() {
+	int getScore() {
 		int currentScore = 0;
 		for (Integer score : scores) {
 			currentScore += score;

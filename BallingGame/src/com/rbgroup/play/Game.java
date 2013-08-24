@@ -9,15 +9,15 @@ public class Game {
 	
 	private ArrayList<Frame> frames = new ArrayList<Frame>(10);
 	
-	public Game() {
+	Game() {
 		initialize();
 	}
 	
-	public Frame getFrame(int frameNumber) {
+	Frame getFrame(int frameNumber) {
 		return frames.get(frameNumber);
 	}
 	
-	public int getFrameSize() {
+	int getFrameSize() {
 		return frames.size();
 	}
 	
@@ -38,7 +38,7 @@ public class Game {
 		return instance;
 	}
 	
-	public void screenPrint(){
+	void screenPrint(){
 		new ConsolePrinter(frames).print();
 	}
 }	

@@ -18,7 +18,7 @@ public class ConsolePrinter implements Printer{
 		this.frames = frames;
 	}
 	
-	public void frameScreen(int currentFrameNumber) {
+	private void frameScreen(int currentFrameNumber) {
 		StringBuilder sb = new StringBuilder();
 
 

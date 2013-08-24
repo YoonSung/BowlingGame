@@ -6,7 +6,7 @@ public class Frame {
 	int frameNumber;
 	Score score;
 	
-	public Frame(int frameNumber) {
+	Frame(int frameNumber) {
 		this.frameNumber = frameNumber;
 		score = new Score(frameNumber);
 	}
