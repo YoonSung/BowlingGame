@@ -1,10 +1,8 @@
-import static org.junit.Assert.*;
-
-import java.awt.Frame;
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class ScoreBoardTest {
 
@@ -16,9 +14,13 @@ public class ScoreBoardTest {
 	}
 	
 	@Test
+	public void frameArray() {
+		assertThat(scoreBoard.getFrame(0), is(new Frame(1)));
+		assertThat(scoreBoard.getFrameSize(), is(10));
+	}
+	
+	@Test
 	public void print() {
-		
-		String screen = scoreBoard.boardPrint();
-		System.out.println();
+		System.out.println(scoreBoard.screenPrint(10));
 	}
 }
