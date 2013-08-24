@@ -15,6 +15,10 @@ public class Frame {
 		return frameNumber;
 	}
 	
+	void roll(int shootNumber) {
+		score.addScore(shootNumber);
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
