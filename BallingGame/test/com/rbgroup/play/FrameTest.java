@@ -1,11 +1,9 @@
 package com.rbgroup.play;
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import com.rbgroup.play.Game;
 
 public class FrameTest {
 
@@ -41,5 +39,14 @@ public class FrameTest {
 		
 		firstFrame.roll(4);
 		assertThat(firstFrame.getScore(), is(7));
+	}
+	
+	@Test
+	public void isEnd() {
+		firstFrame.roll(3);
+		assertFalse(firstFrame.isFrameEnd());
+		
+		firstFrame.roll(6);
+		assertTrue(firstFrame.isFrameEnd());
 	}
 }
