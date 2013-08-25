@@ -33,4 +33,13 @@ public class FrameTest {
 		firstFrame.roll(4);
 		firstFrame.roll(5);
 	}
+	
+	@Test
+	public void getScore() {
+		firstFrame.roll(3);
+		assertThat(firstFrame.getScore(), is(3));
+		
+		firstFrame.roll(4);
+		assertThat(firstFrame.getScore(), is(7));
+	}
 }

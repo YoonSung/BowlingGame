@@ -1,5 +1,6 @@
 package com.rbgroup.play;
 
+import com.rbgroup.score.Score;
 
 public class Frame {
 	
@@ -17,6 +18,14 @@ public class Frame {
 	
 	void roll(int shootNumber) {
 		score.addScore(shootNumber);
+	}
+	
+	int getRollingIndex() {
+		return (score.getScoreSize());
+	}
+	
+	boolean isFrameEnd() {
+		return score.isCapacityEqualsScoreNumber();
 	}
 	
 	int getScore() {
