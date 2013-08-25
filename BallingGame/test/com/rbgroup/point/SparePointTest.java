@@ -1,9 +1,12 @@
 package com.rbgroup.point;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import com.rbgroup.play.Frame;
 import com.rbgroup.point.Point.Type;
 import com.rbgroup.score.Score;
 
@@ -30,4 +33,6 @@ public class SparePointTest {
 		score.addScore(new SparePoint(7));
 		assertThat(score.getScore(), is(3));
 	}
+	
+	
 }

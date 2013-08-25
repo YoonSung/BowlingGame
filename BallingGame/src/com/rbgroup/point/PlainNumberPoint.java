@@ -11,4 +11,7 @@ public class PlainNumberPoint extends Point{
 		Type type = getType();
 		return type.getPoint();
 	}
+
+	@Override
+	public void addPoint(int extraPoint) {}
 }

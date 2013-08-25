@@ -15,12 +15,12 @@ public class Score {
 		scores = new ArrayList<Point>(capacity);
 	}
 	
-	public void addScore(Point shootNumber) throws ExceedRollingException {
+	public void addScore(Point shootPoint) throws ExceedRollingException {
 		if (scores.size() >= capacity)
 			throw new ExceedRollingException(capacity);
 		
-		
-		scores.add(shootNumber);
+		ScoreUtil.AutoManagePoint(shootPoint);
+		scores.add(shootPoint);
 	}
 
 	public int getScore() {

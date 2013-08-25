@@ -4,7 +4,7 @@ import static com.rbgroup.point.Point.Type.*;
 public abstract class Point {
 
 	//enum class start
-	protected enum Type{
+	public enum Type{
 		GUTTER	 ('-', 0),
 		ONE 	 ('1', 1),
 		TWO 	 ('2', 2),
@@ -100,9 +100,10 @@ public abstract class Point {
 		return type.getLetter();
 	};
 	
-	protected Type getType() {
+	public Type getType() {
 		return type;
 	}
 	
 	public abstract int getPoint();
+	public abstract void addPoint(int extraPoint);
 }

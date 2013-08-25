@@ -19,9 +19,15 @@ public class SparePoint extends Point {
 		return 0;
 	}
 	
-	public void addPoint(int extraPoint) throws Exception{
-		if (isSpareCalculated)
-			throw new Exception("Invalid Access to Caculated Point");
+	@Override
+	public void addPoint(int extraPoint){
+		if (isSpareCalculated) {
+			try {
+				throw new Exception("Invalid Access to Caculated Point");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		int sparePinNumber = type.getPoint();
 		type.setPoint(sparePinNumber+extraPoint);
