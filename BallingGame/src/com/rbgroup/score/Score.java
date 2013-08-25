@@ -27,7 +27,7 @@ public class Score {
 		int currentScore = 0;
 		
 		for (Point point : scores)
-			currentScore += point.getScore();
+			currentScore += point.getPoint();
 
 		return currentScore;
 	}

@@ -7,7 +7,8 @@ public class PlainNumberPoint extends Point{
 	}
 
 	@Override
-	public int getScore() {
+	public int getPoint() {
+		Type type = getType();
 		return type.getPoint();
 	}
 }

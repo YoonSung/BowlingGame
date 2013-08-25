@@ -4,7 +4,7 @@ import static com.rbgroup.point.Point.Type.*;
 public abstract class Point {
 
 	//enum class start
-	enum Type{
+	protected enum Type{
 		GUTTER	 ('-', 0),
 		ONE 	 ('1', 1),
 		TWO 	 ('2', 2),
@@ -29,21 +29,30 @@ public abstract class Point {
 			this.point = point;
 		}
 		
-		public char getLetter() {
+		protected char getLetter() {
 			return letter;
 		}
 		
 		
-		public int getPoint() {
+		protected int getPoint() {
 			return point;
+		}
+
+		protected void setPoint(int shootNumber) {
+			this.point = shootNumber;
 		}
 	}
 	//enum class end
 	
-	Type type;
-	int downPinNumber;
+	private Type type;
+	private int downPinNumber;
 	
-	public Point(int shootNumber) {
+	protected Point(int shootNumber, Type type) {
+		downPinNumber = shootNumber;
+		this.type = type;
+	}
+	
+	protected Point(int shootNumber) {
 		downPinNumber = shootNumber;
 		
 		switch (shootNumber) {
@@ -83,13 +92,17 @@ public abstract class Point {
 		}
 	}
 	
-	int getDownPinNumber() {
+	protected int getDownPinNumber() {
 		return downPinNumber;
 	};
 	
-	char getLetter() {
+	protected char getLetter() {
 		return type.getLetter();
 	};
 	
-	public abstract int getScore();
+	protected Type getType() {
+		return type;
+	}
+	
+	public abstract int getPoint();
 }
