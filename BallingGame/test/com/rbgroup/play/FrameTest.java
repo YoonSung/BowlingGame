@@ -1,9 +1,14 @@
 package com.rbgroup.play;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.rbgroup.point.PlainNumberPoint;
+import com.rbgroup.util.ExceedRollingException;
 
 public class FrameTest {
 
@@ -27,26 +32,26 @@ public class FrameTest {
 	
 	@Test(expected=ExceedRollingException.class)
 	public void roll() {
-		firstFrame.roll(3);
-		firstFrame.roll(4);
-		firstFrame.roll(5);
+		firstFrame.roll(new PlainNumberPoint(3));
+		firstFrame.roll(new PlainNumberPoint(4));
+		firstFrame.roll(new PlainNumberPoint(5));
 	}
 	
 	@Test
 	public void getScore() {
-		firstFrame.roll(3);
+		firstFrame.roll(new PlainNumberPoint(3));
 		assertThat(firstFrame.getScore(), is(3));
 		
-		firstFrame.roll(4);
+		firstFrame.roll(new PlainNumberPoint(4));
 		assertThat(firstFrame.getScore(), is(7));
 	}
 	
 	@Test
 	public void isEnd() {
-		firstFrame.roll(3);
+		firstFrame.roll(new PlainNumberPoint(3));
 		assertFalse(firstFrame.isFrameEnd());
 		
-		firstFrame.roll(6);
+		firstFrame.roll(new PlainNumberPoint(4));
 		assertTrue(firstFrame.isFrameEnd());
 	}
 }

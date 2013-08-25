@@ -1,4 +1,4 @@
-package com.rbgroup.play;
+package com.rbgroup.util;
 
 public class ExceedRollingException extends RuntimeException{
 	

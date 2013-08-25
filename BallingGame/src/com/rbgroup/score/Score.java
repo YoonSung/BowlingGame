@@ -3,28 +3,31 @@ package com.rbgroup.score;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.rbgroup.play.ExceedRollingException;
+import com.rbgroup.point.Point;
+import com.rbgroup.util.ExceedRollingException;
 
 public class Score {
 
-	List<Integer> scores;
+	List<Point> scores;
 	int capacity = 2;
 	
 	public Score() {
-		scores = new ArrayList<Integer>(capacity);
+		scores = new ArrayList<Point>(capacity);
 	}
 	
-	public void addScore(int shootNumber) throws ExceedRollingException {
+	public void addScore(Point shootNumber) throws ExceedRollingException {
 		if (scores.size() >= capacity)
-			throw new ExceedRollingException(shootNumber);
+			throw new ExceedRollingException(capacity);
+		
+		
 		scores.add(shootNumber);
 	}
 
 	public int getScore() {
 		int currentScore = 0;
 		
-		for (Integer score : scores)
-			currentScore += score;
+		for (Point point : scores)
+			currentScore += point.getScore();
 
 		return currentScore;
 	}

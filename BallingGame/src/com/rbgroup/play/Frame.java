@@ -1,11 +1,13 @@
 package com.rbgroup.play;
 
+import com.rbgroup.point.Point;
 import com.rbgroup.score.Score;
 
 public class Frame {
 	
 	int frameNumber;
 	Score score;
+	
 	
 	Frame(int frameNumber) {
 		this.frameNumber = frameNumber;
@@ -16,7 +18,7 @@ public class Frame {
 		return frameNumber;
 	}
 	
-	void roll(int shootNumber) {
+	void roll(Point shootNumber) {
 		score.addScore(shootNumber);
 	}
 	
