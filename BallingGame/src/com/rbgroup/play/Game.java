@@ -35,11 +35,11 @@ public class Game {
 		frames.add(new Frame(10));
 	}
 
-	public static Game getInstance(){
+	static Game getInstance() {
 		return instance;
 	}
 	
-	void screenPrint(){
+	void screenPrint() {
 		new ConsolePrinter(frames).print();
 	}
 }	

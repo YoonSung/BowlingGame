@@ -84,5 +84,4 @@ public class FrameTest {
 		assertThat(secondFrame.getScore(), is(20));
 		
 	}
-	
 }
