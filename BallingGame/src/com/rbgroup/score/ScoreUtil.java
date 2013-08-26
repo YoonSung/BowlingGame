@@ -10,47 +10,73 @@ import com.rbgroup.point.Point;
 
 
 public class ScoreUtil {
-	private static Queue<Point> queue = new LinkedList<Point>();
-	private ScoreUtil(){};
+	private static LinkedList<Point> linkedList = new LinkedList<Point>();
 	
+	private ScoreUtil() {
+		linkedList.clear();
+	};
 	
 	public static void AutoManagePoint(Point point) {
-		queue.add(point);
+		linkedList.addLast(point);
 		
-		if (queue.size() > 1)
+		if (linkedList.size() > 1)
 			managePoint();
 	}
 
 	private static void managePoint() {
-		
-		Point peekPoint = queue.peek();
+		Point peekPoint = linkedList.peek();
 		Type peekPointType = peekPoint.getType();
-		int queueSize = queue.size();
 		
+		int listSize = linkedList.size();
+
+		if (peekPointType != SPARE && peekPointType !=STRIKE)
+			linkedList.poll();
 		
-		if (peekPointType == SPARE && queueSize > 1) {
+		if (peekPointType == SPARE && listSize > 1) 
 			calculateSparePoint();
-			return;
-		}
 		
-		if (peekPointType == STRIKE && queueSize > 2) {
+		if (peekPointType == STRIKE && listSize > 2) 
 			calculateStrikePoint();
-			return;
-		}
-		
-		queue.poll();
 	}
 
 	private static void calculateStrikePoint() {
 		
+		for (Point point : linkedList) {
+			System.out.print(point.getType()+"\t");
+			System.out.print(point.getPoint()+"\t");
+			System.out.println("\n");
+		}
+		System.out.println("\n");
+		
+		Point sourcePoint = linkedList.poll();
+		
+		Point targetPoint1 = linkedList.get(0);
+		int targetValue1 = targetPoint1.getPoint();
+		
+		
+		Point targetPoint2 = linkedList.get(1);
+		int targetValue2 = targetPoint2.getPoint();
+		
+		if (targetPoint2.getType() == Type.SPARE) {
+			sourcePoint.addPoint(10);
+			return;
+		}
+			
+		sourcePoint.addPoint(targetValue1);
+		sourcePoint.addPoint(targetValue2);
+		
+		
+//		System.out.println("sourcePoint : "+sourcePoint.getPoint());
+//		System.out.println("targetValue1 : "+targetValue1);
+//		System.out.println("targetValue2 : "+targetValue2);
 	}
 
 
 	private static void calculateSparePoint() {
-		Point peekPoint = queue.poll();
-		Point targetPoint = queue.poll();
+		Point sourcePoint = linkedList.poll();
+		Point targetPoint = linkedList.peek();
 		int targetPointValue = targetPoint.getPoint();
 		
-		peekPoint.addPoint(targetPointValue);
+		sourcePoint.addPoint(targetPointValue);
 	}
 }

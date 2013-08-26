@@ -9,9 +9,14 @@ public class PlainNumberPoint extends Point{
 	@Override
 	public int getPoint() {
 		Type type = getType();
-		return type.getPoint();
+		return type.getDefaultPoint();
 	}
 
 	@Override
 	public void addPoint(int extraPoint) {}
+
+	@Override
+	public boolean isCalculateComplete() {
+		return true;
+	}
 }

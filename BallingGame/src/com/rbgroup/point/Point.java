@@ -16,7 +16,7 @@ public abstract class Point {
 		EIGHT	 ('8', 8),
 		NINE	 ('9', 9),
 		SPARE	 ('/', 0),
-		STRIKE	 ('X', 0);
+		STRIKE	 ('X', 10);
 		
 		
 		private char letter;
@@ -33,13 +33,12 @@ public abstract class Point {
 			return letter;
 		}
 		
-		
-		protected int getPoint() {
-			return point;
+		protected void setDefaultPoint(int point) {
+			this.point = point;
 		}
-
-		protected void setPoint(int shootNumber) {
-			this.point = shootNumber;
+		
+		protected int getDefaultPoint() {
+			return point;
 		}
 	}
 	//enum class end
@@ -106,4 +105,5 @@ public abstract class Point {
 	
 	public abstract int getPoint();
 	public abstract void addPoint(int extraPoint);
+	public abstract boolean isCalculateComplete();
 }

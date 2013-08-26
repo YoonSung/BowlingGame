@@ -2,26 +2,25 @@ package com.rbgroup.point;
 
 public class SparePoint extends Point {
 
-	boolean isSpareCalculated = false;
-	private Type type;
-	
+	private boolean isSpareCalculated = false;
+	private int calculatedPoint;
 	
 	public SparePoint(int shootNumber) {
 		super(shootNumber, Type.SPARE);
-		type = getType();
-		type.setPoint(shootNumber);
+		calculatedPoint = shootNumber;
+		Type.SPARE.setDefaultPoint(shootNumber);
 	}
 
 	@Override
 	public int getPoint() {
 		if (isSpareCalculated)
-			return type.getPoint();
+			return calculatedPoint;
 		return 0;
 	}
 	
 	@Override
 	public void addPoint(int extraPoint){
-		if (isSpareCalculated) {
+		if (isCalculateComplete()) {
 			try {
 				throw new Exception("Invalid Access to Caculated Point");
 			} catch (Exception e) {
@@ -29,8 +28,12 @@ public class SparePoint extends Point {
 			}
 		}
 		
-		int sparePinNumber = type.getPoint();
-		type.setPoint(sparePinNumber+extraPoint);
+		calculatedPoint += extraPoint;
 		isSpareCalculated = true;
+	}
+
+	@Override
+	public boolean isCalculateComplete() {
+		return isSpareCalculated;
 	}
 }

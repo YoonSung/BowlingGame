@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.rbgroup.point.PlainNumberPoint;
 import com.rbgroup.point.SparePoint;
+import com.rbgroup.point.StrikePoint;
 import com.rbgroup.util.ExceedRollingException;
 
 public class FrameTest {
@@ -55,7 +56,7 @@ public class FrameTest {
 	}
 	
 	@Test
-	public void getAccumulatedFramePoint() {
+	public void getSpareFramePoint() {
 		firstFrame.roll(new PlainNumberPoint(3));
 		assertThat(firstFrame.getScore(), is(3));
 		
@@ -65,4 +66,23 @@ public class FrameTest {
 		secondFrame.roll(new PlainNumberPoint(8));
 		assertThat(firstFrame.getScore(), is(18));
 	}
+	
+	@Test
+	public void getStrikeFramePoint() {
+		
+		firstFrame.roll(new StrikePoint());
+		assertThat(firstFrame.getScore(), is(10));
+		
+		secondFrame.roll(new StrikePoint()); 
+		assertThat(firstFrame.getScore(), is(10));
+		
+		thirdFrame.roll(new PlainNumberPoint(8));
+		assertThat(firstFrame.getScore(), is(28));
+		
+		thirdFrame.roll(new SparePoint(2));
+		assertThat(firstFrame.getScore(), is(28));
+		assertThat(secondFrame.getScore(), is(20));
+		
+	}
+	
 }
