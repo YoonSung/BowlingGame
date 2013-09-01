@@ -9,7 +9,6 @@ import com.rbgroup.print.ConsolePrinter;
 public class Game {
 	
 	private List<Frame> frames;
-	private int lastFrameNumber = 10;
 	
 	Game() {
 		frames = new ArrayList<Frame>(10);
@@ -30,11 +29,6 @@ public class Game {
 		frames.add(new Frame(10));
 	}
 
-
-	Frame getFrame(int frameNumber) {
-		return frames.get(frameNumber);
-	}
-	
 	int getScore(){
 		int totalScore = 0;
 		
@@ -44,14 +38,35 @@ public class Game {
 		return totalScore;
 	}
 	
-	void AutoPlayStart() {
+	int getCurrentFrameNumber() {
+		int currentFrameNumber = 1;
 		
 		for (Frame frame : frames) {
-			playFrameShoot(frame);
+			if (!frame.isFrameEnd()) {
+				currentFrameNumber = frame.getFrameNumber();
+				break;
+			}
 		}
+		
+		return currentFrameNumber;
 	}
 	
-	private void playFrameShoot(Frame frame) {
+	int getCurrentRollingNumber() {
+		int frameNumber = getCurrentFrameNumber();
+		int rollingIndex = frames.get(frameNumber-1).getRollingIndex();
+		
+		return rollingIndex;
+	}
+	
+	void AutoPlayStart() {
+		play(frames.get(0));
+		play(frames.get(1));
+//		for (Frame frame : frames) {
+//			play(frame);
+//		}
+	}
+	
+	private void play(Frame frame) {
 		int remainPinNumber = 10;
 		PointController pointController = new PointController();
 		

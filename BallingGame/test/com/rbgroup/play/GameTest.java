@@ -19,12 +19,17 @@ public class GameTest {
 	}
 	
 	@Test
-	public void frameArray() {
-		assertThat(game.getFrame(0), is(new Frame(1)));
+	public void print() {
+		game.screenPrint();
 	}
 	
 	@Test
-	public void print() {
-		game.screenPrint();
+	public void getCurrentFrameNumber() {
+		assertThat(game.getCurrentFrameNumber(), is(3));
+	}
+	
+	@Test
+	public void getCurrentRolloingIndex() {
+		assertThat(game.getCurrentRollingNumber(), is(0));
 	}
 }
