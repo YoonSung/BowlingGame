@@ -24,21 +24,6 @@ public class GameTest {
 	}
 	
 	@Test
-	public void getCurrentFrameNumber() {
-		assertThat(game.getCurrentFrameNumber(), is(3));
-	}
-	
-	@Test
-	public void getCurrentRolloingIndex() {
-		assertThat(game.getCurrentRollingNumber(), is(0));
-	}
-	
-	@Test
-	public void isGameEnd() {
-		assertThat(game.isGameEnd(), is(false));
-	}
-	
-	@Test
 	public void pauseTest() {
 		
 	}

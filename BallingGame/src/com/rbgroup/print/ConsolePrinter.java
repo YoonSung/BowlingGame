@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.rbgroup.play.Frame;
 
-public class ConsolePrinter implements Printer{
+public class ConsolePrinter implements Printable{
 
 	public static String NEW_LINE = System.getProperty("line.separator");
 	private List<Frame> frames;

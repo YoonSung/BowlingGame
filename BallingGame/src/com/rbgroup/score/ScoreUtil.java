@@ -1,8 +1,6 @@
 package com.rbgroup.score;
 
 import java.util.LinkedList;
-import java.util.Queue;
-
 import static com.rbgroup.point.Point.Type.*;
 import static com.rbgroup.point.Point.Type;
 
@@ -57,11 +55,6 @@ public class ScoreUtil {
 			
 		sourcePoint.addPoint(targetValue1);
 		sourcePoint.addPoint(targetValue2);
-		
-		
-//		System.out.println("sourcePoint : "+sourcePoint.getPoint());
-//		System.out.println("targetValue1 : "+targetValue1);
-//		System.out.println("targetValue2 : "+targetValue2);
 	}
 
 

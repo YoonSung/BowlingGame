@@ -2,7 +2,6 @@ package com.rbgroup.score;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.rbgroup.point.BlankPoint;
 import com.rbgroup.point.Point;
 import com.rbgroup.point.Point.Type;

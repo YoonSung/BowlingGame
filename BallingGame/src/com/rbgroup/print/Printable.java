@@ -1,4 +1,4 @@
 package com.rbgroup.print;
-public interface Printer {
+public interface Printable {
 	void print();
 }
