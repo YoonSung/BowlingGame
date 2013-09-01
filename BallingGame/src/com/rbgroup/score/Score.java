@@ -39,4 +39,11 @@ public class Score {
 	public boolean isCapacityEqualsScoreNumber() {
 		return (capacity == scores.size());
 	}
+
+	public String generateString() {
+		StringBuilder sb = new StringBuilder();
+		for (Point point : scores)
+			sb.append(point.getLetter());
+		return sb.toString();
+	}
 }

@@ -55,4 +55,8 @@ public class Frame {
 			return false;
 		return true;
 	}
+
+	public String generateString() {
+		return score.generateString();
+	}
 }

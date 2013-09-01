@@ -15,6 +15,7 @@ public class GameTest {
 	@Before
 	public void init() {
 		game = Game.getInstance();
+		game.gameStart();
 	}
 	
 	@Test

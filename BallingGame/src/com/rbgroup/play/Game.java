@@ -2,6 +2,7 @@ package com.rbgroup.play;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rbgroup.point.PointController;
 import com.rbgroup.print.ConsolePrinter;
 
 
@@ -39,6 +40,26 @@ public class Game {
 		return instance;
 	}
 	
+	void gameStart() {
+		
+		for (Frame frame : frames) {
+			playFrameShoot(frame);
+		}
+	}
+	
+	private void playFrameShoot(Frame frame) {
+		int totalPlayNumber = 2;
+		int remainPinNumber = 10;
+		PointController pointController = new PointController();
+		
+		while (totalPlayNumber != 0 && remainPinNumber != 0) {
+			int knockDownPinNumber = PlayUtil.getKnockDownPinRandomNumber(remainPinNumber);
+			frame.roll(pointController.getProperPoint(knockDownPinNumber));
+			totalPlayNumber--;
+			remainPinNumber -=knockDownPinNumber; 
+		}
+	}
+
 	void screenPrint() {
 		new ConsolePrinter(frames).print();
 	}

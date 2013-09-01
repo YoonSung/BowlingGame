@@ -41,13 +41,6 @@ public class ScoreUtil {
 
 	private static void calculateStrikePoint() {
 		
-		for (Point point : linkedList) {
-			System.out.print(point.getType()+"\t");
-			System.out.print(point.getPoint()+"\t");
-			System.out.println("\n");
-		}
-		System.out.println("\n");
-		
 		Point sourcePoint = linkedList.poll();
 		
 		Point targetPoint1 = linkedList.get(0);

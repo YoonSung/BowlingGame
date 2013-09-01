@@ -95,7 +95,7 @@ public abstract class Point {
 		return downPinNumber;
 	};
 	
-	protected char getLetter() {
+	public char getLetter() {
 		return type.getLetter();
 	};
 	
