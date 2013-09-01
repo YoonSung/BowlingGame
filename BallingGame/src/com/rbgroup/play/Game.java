@@ -10,6 +10,8 @@ public class Game {
 	
 	private static Game instance = new Game();
 	private List<Frame> frames = new ArrayList<Frame>(10);
+	private int totalScore;
+	
 	
 	Game() {
 		initialize();
@@ -44,6 +46,7 @@ public class Game {
 		
 		for (Frame frame : frames) {
 			playFrameShoot(frame);
+			totalScore +=frame.getScore();
 		}
 	}
 	

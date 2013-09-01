@@ -11,20 +11,25 @@ public class ConsolePrinter implements Printer{
 	
 	@Override
 	public void print() {
-		generateScreen(3);
+		generateScreen();
 	}
 
 	public ConsolePrinter(List<Frame> frames) {
 		this.frames = frames;
 	}
 	
-	private void generateScreen(int currentFrameNumber) {
-		StringBuilder sb = new StringBuilder();
+	private void generateScreen() {
 
+		StringBuilder sb = new StringBuilder();
+		
 		for (Frame frame : frames) {
-			String result = frame.generateString();
-			System.out.print(result);
-			System.out.print("|");
+			
+			sb.append(frame.getFrameNumber()); 
+			sb.append("=");
+			sb.append(frame.getFramePointString());
+			sb.append("=");
+			sb.append(frame.getScore());
+			sb.append("|");
 		}
 //		sb.append(frameNumberPrint(currentFrameNumber));
 //		sb.append(frameScorePrint(currentFrameNumber));

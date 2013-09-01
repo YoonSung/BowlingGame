@@ -14,7 +14,7 @@ public class Frame {
 		score = new Score();
 	}
 
-	int getFrameNumber() {
+	public int getFrameNumber() {
 		return frameNumber;
 	}
 	
@@ -30,7 +30,7 @@ public class Frame {
 		return score.isCapacityEqualsScoreNumber();
 	}
 	
-	int getScore() {
+	public int getScore() {
 		return score.getScore();
 	}
 
@@ -56,7 +56,7 @@ public class Frame {
 		return true;
 	}
 
-	public String generateString() {
-		return score.generateString();
+	public String getFramePointString() {
+		return score.getPointString();
 	}
 }

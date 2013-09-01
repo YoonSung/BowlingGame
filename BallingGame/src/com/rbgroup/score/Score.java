@@ -45,7 +45,7 @@ public class Score {
 		return (capacity == scores.size());
 	}
 
-	public String generateString() {
+	public String getPointString() {
 		StringBuilder sb = new StringBuilder();
 		for (Point point : scores)
 			sb.append(point.getLetter());
