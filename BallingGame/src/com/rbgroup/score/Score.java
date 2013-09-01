@@ -10,8 +10,8 @@ import com.rbgroup.util.ExceedRollingException;
 
 public class Score {
 
-	private List<Point> scores;
-	private int capacity = 2;
+	protected List<Point> scores;
+	protected int capacity = 2;
 	
 	public Score() {
 		scores = new ArrayList<Point>(capacity);

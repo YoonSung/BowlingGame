@@ -2,6 +2,7 @@ package com.rbgroup.play;
 
 import com.rbgroup.point.Point;
 import com.rbgroup.score.Score;
+import com.rbgroup.score.ScoreTenFrame;
 
 public class Frame {
 	
@@ -12,6 +13,9 @@ public class Frame {
 	Frame(int frameNumber) {
 		this.frameNumber = frameNumber;
 		score = new Score();
+		
+		if (frameNumber == 10)
+			score = new ScoreTenFrame();
 	}
 
 	public int getFrameNumber() {

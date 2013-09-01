@@ -8,9 +8,6 @@ public class ConsolePrinter implements Printer{
 
 	public static String NEW_LINE = System.getProperty("line.separator");
 	private List<Frame> frames;
-	private String BLANK = " ";
-	private String SPLIT = "|";
-	
 	
 	@Override
 	public void print() {
@@ -24,7 +21,7 @@ public class ConsolePrinter implements Printer{
 	private void generateScreen() {
 
 		for (Frame frame : frames) {
-			System.out.printf("%-3d |", frame.getFrameNumber());
+			System.out.printf("%3d |", frame.getFrameNumber());
 		}
 		
 		System.out.print(NEW_LINE);
@@ -38,7 +35,7 @@ public class ConsolePrinter implements Printer{
 		int totalscore=0;
 		for (Frame frame : frames) {
 			totalscore += frame.getScore();
-			System.out.format("%-3d|", totalscore);
+			System.out.format("%3d|", totalscore);
 		}
 		
 		System.out.print(NEW_LINE);
