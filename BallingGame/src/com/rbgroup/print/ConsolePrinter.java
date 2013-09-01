@@ -1,7 +1,6 @@
 package com.rbgroup.print;
 
 import java.util.List;
-
 import com.rbgroup.play.Frame;
 
 public class ConsolePrinter implements Printable{

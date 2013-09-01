@@ -2,7 +2,6 @@ package com.rbgroup.play;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.rbgroup.point.PointController;
 import com.rbgroup.print.ConsolePrinter;
 

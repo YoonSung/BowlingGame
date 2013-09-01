@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.Before;
 import org.junit.Test;
-import com.rbgroup.point.Point.Type;
 
 public class PlainNumberPointTest {
 
@@ -19,6 +18,5 @@ public class PlainNumberPointTest {
 	public void getOrdinaryContent() {
 		assertThat(instance.getLetter(), is('3'));
 		assertThat(instance.getDownPinNumber(), is(3));
-		assertThat(instance.getType(), is(Type.THREE));
 	}
 }

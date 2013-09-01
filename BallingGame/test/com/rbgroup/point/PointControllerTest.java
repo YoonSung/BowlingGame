@@ -1,13 +1,10 @@
 package com.rbgroup.point;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
-import com.rbgroup.play.PlayUtil;
-
 import static org.hamcrest.CoreMatchers.is;
+
 public class PointControllerTest {
 
 	PointController pointController ;

@@ -2,12 +2,13 @@ package com.rbgroup.play;
 
 import com.rbgroup.point.Point;
 import com.rbgroup.score.Score;
+import com.rbgroup.score.ScoreOperand;
 import com.rbgroup.score.ScoreTenFrame;
 
 public class Frame {
 	
 	int frameNumber;
-	Score score;
+	ScoreOperand score;
 	
 	
 	Frame(int frameNumber) {

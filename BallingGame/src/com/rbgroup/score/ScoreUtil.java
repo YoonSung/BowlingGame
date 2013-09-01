@@ -3,7 +3,6 @@ package com.rbgroup.score;
 import java.util.LinkedList;
 import static com.rbgroup.point.Point.Type.*;
 import static com.rbgroup.point.Point.Type;
-
 import com.rbgroup.point.Point;
 
 

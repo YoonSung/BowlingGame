@@ -7,7 +7,7 @@ import com.rbgroup.point.Point;
 import com.rbgroup.point.Point.Type;
 import com.rbgroup.util.ExceedRollingException;
 
-public class Score {
+public class Score implements ScoreOperand{
 
 	protected List<Point> scores;
 	protected int capacity = 2;
