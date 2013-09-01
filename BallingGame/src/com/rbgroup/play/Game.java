@@ -8,21 +8,13 @@ import com.rbgroup.print.ConsolePrinter;
 
 public class Game {
 	
-	private static Game instance = new Game();
-	private List<Frame> frames = new ArrayList<Frame>(10);
-	private int totalScore;
-	
+	private List<Frame> frames;
+	private int lastFrameNumber = 10;
 	
 	Game() {
+		frames = new ArrayList<Frame>(10);
 		initialize();
-	}
-	
-	Frame getFrame(int frameNumber) {
-		return frames.get(frameNumber);
-	}
-	
-	int getFrameSize() {
-		return frames.size();
+		AutoPlayStart();
 	}
 	
 	private void initialize() {
@@ -38,27 +30,34 @@ public class Game {
 		frames.add(new Frame(10));
 	}
 
-	static Game getInstance() {
-		return instance;
+
+	Frame getFrame(int frameNumber) {
+		return frames.get(frameNumber);
 	}
 	
-	void gameStart() {
+	int getScore(){
+		int totalScore = 0;
+		
+		for (Frame frame : frames) {
+			totalScore += frame.getScore();
+		}
+		return totalScore;
+	}
+	
+	void AutoPlayStart() {
 		
 		for (Frame frame : frames) {
 			playFrameShoot(frame);
-			totalScore +=frame.getScore();
 		}
 	}
 	
 	private void playFrameShoot(Frame frame) {
-		int totalPlayNumber = 2;
 		int remainPinNumber = 10;
 		PointController pointController = new PointController();
 		
 		while (!frame.isFrameEnd()) {
 			int knockDownPinNumber = PlayUtil.getKnockDownPinRandomNumber(remainPinNumber);
 			frame.roll(pointController.getProperPoint(knockDownPinNumber));
-			totalPlayNumber--;
 			remainPinNumber -=knockDownPinNumber; 
 		}
 	}

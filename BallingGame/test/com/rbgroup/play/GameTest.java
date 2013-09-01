@@ -14,14 +14,13 @@ public class GameTest {
 	
 	@Before
 	public void init() {
-		game = Game.getInstance();
-		game.gameStart();
+		game = new Game();
+		game.AutoPlayStart();
 	}
 	
 	@Test
 	public void frameArray() {
 		assertThat(game.getFrame(0), is(new Frame(1)));
-		assertThat(game.getFrameSize(), is(10));
 	}
 	
 	@Test
