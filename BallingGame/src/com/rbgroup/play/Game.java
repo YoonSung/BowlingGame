@@ -80,4 +80,9 @@ public class Game {
 	void screenPrint() {
 		new ConsolePrinter(frames).print();
 	}
+	
+	boolean isGameEnd() {
+		Frame lastFrame = frames.get(9);
+		return lastFrame.isFrameEnd();
+	}
 }	

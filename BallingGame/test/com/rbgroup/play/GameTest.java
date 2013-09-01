@@ -32,4 +32,9 @@ public class GameTest {
 	public void getCurrentRolloingIndex() {
 		assertThat(game.getCurrentRollingNumber(), is(0));
 	}
+	
+	@Test
+	public void isGameEnd() {
+		assertThat(game.isGameEnd(), is(false));
+	}
 }
