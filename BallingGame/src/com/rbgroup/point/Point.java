@@ -16,7 +16,8 @@ public abstract class Point {
 		EIGHT	 ('8', 8),
 		NINE	 ('9', 9),
 		SPARE	 ('/', 0),
-		STRIKE	 ('X', 10);
+		STRIKE	 ('X', 10), 
+		BLANK (' ', 0);
 		
 		
 		private char letter;
