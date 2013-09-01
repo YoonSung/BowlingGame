@@ -52,7 +52,7 @@ public class Game {
 		int remainPinNumber = 10;
 		PointController pointController = new PointController();
 		
-		while (totalPlayNumber != 0 && remainPinNumber != 0) {
+		while (!frame.isFrameEnd()) {
 			int knockDownPinNumber = PlayUtil.getKnockDownPinRandomNumber(remainPinNumber);
 			frame.roll(pointController.getProperPoint(knockDownPinNumber));
 			totalPlayNumber--;

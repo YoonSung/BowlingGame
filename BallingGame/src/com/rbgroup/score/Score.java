@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rbgroup.point.Point;
+import com.rbgroup.point.Point.Type;
 import com.rbgroup.util.ExceedRollingException;
 
 public class Score {
 
-	List<Point> scores;
-	int capacity = 2;
+	private List<Point> scores;
+	private int capacity = 2;
 	
 	public Score() {
 		scores = new ArrayList<Point>(capacity);
@@ -18,6 +19,9 @@ public class Score {
 	public void addScore(Point shootPoint) throws ExceedRollingException {
 		if (scores.size() >= capacity)
 			throw new ExceedRollingException(capacity);
+		
+		if (shootPoint.getType() == Type.STRIKE)
+			capacity = 1;
 		
 		ScoreUtil.AutoManagePoint(shootPoint);
 		scores.add(shootPoint);
