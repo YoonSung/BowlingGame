@@ -1,6 +1,7 @@
 package com.rbgroup.play;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.rbgroup.point.PointController;
 import com.rbgroup.print.ConsolePrinter;
@@ -9,6 +10,8 @@ import com.rbgroup.print.ConsolePrinter;
 public class Game {
 	
 	private List<Frame> frames;
+	Scanner scanner = new Scanner(System.in); //its for play game. scanner is pause every rolling time
+	
 	
 	Game() {
 		frames = new ArrayList<Frame>(10);
@@ -59,11 +62,12 @@ public class Game {
 	}
 	
 	void AutoPlayStart() {
-		play(frames.get(0));
-		play(frames.get(1));
-//		for (Frame frame : frames) {
-//			play(frame);
-//		}
+		
+		pause();
+		
+		for (Frame frame : frames) {
+			play(frame);
+		}
 	}
 	
 	private void play(Frame frame) {
@@ -74,10 +78,17 @@ public class Game {
 			int knockDownPinNumber = PlayUtil.getKnockDownPinRandomNumber(remainPinNumber);
 			frame.roll(pointController.getProperPoint(knockDownPinNumber));
 			remainPinNumber -=knockDownPinNumber; 
+			pause();
 		}
 	}
 
-	void screenPrint() {
+	private void pause() {
+		System.out.println("continue (Press Anykey)");
+		showScoreBoard();
+		scanner.nextLine();
+	}
+
+	void showScoreBoard() {
 		new ConsolePrinter(frames).print();
 	}
 	

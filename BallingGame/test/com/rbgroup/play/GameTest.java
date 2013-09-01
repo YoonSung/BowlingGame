@@ -20,7 +20,7 @@ public class GameTest {
 	
 	@Test
 	public void print() {
-		game.screenPrint();
+		game.showScoreBoard();
 	}
 	
 	@Test
@@ -36,5 +36,10 @@ public class GameTest {
 	@Test
 	public void isGameEnd() {
 		assertThat(game.isGameEnd(), is(false));
+	}
+	
+	@Test
+	public void pauseTest() {
+		
 	}
 }

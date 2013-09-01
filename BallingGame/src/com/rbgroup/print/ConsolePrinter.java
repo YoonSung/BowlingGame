@@ -24,13 +24,13 @@ public class ConsolePrinter implements Printer{
 	private void generateScreen() {
 
 		for (Frame frame : frames) {
-			System.out.printf("%3d |", frame.getFrameNumber());
+			System.out.printf("%-3d |", frame.getFrameNumber());
 		}
 		
 		System.out.print(NEW_LINE);
 		
 		for (Frame frame : frames) {
-			System.out.format("%3s|", frame.getFramePointString());
+			System.out.format("%-3s|", frame.getFramePointString());
 		}
 		
 		System.out.print(NEW_LINE);
@@ -38,7 +38,10 @@ public class ConsolePrinter implements Printer{
 		int totalscore=0;
 		for (Frame frame : frames) {
 			totalscore += frame.getScore();
-			System.out.format("%3d|", totalscore);
+			System.out.format("%-3d|", totalscore);
 		}
+		
+		System.out.print(NEW_LINE);
+		System.out.print(NEW_LINE);
 	}
 }
