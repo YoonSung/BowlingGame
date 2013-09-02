@@ -2,6 +2,7 @@ package com.rbgroup.play;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import com.rbgroup.point.PointController;
 import com.rbgroup.print.ConsolePrinter;
 
@@ -10,12 +11,13 @@ public class Game {
 	
 	private List<Frame> frames;
 	Scanner scanner = new Scanner(System.in); //its for play game. scanner is pause every rolling time
+	String playerName;
 	
-	
-	Game() {
+	Game(String playerName) {
+		this.playerName = playerName;
 		frames = new ArrayList<Frame>(10);
 		initialize();
-		AutoPlayStart();
+		//AutoPlayStart();
 	}
 	
 	private void initialize() {
@@ -53,9 +55,23 @@ public class Game {
 		return currentFrameNumber;
 	}
 	
+	Frame getCurrentFrame() {
+		
+		Frame currentFrame = null;
+		
+		for (Frame frame : frames) {
+			if (!frame.isFrameEnd()) {
+				currentFrame = frame;
+				break;
+			}
+		}
+		
+		return currentFrame;
+	}
+	
 	int getCurrentRollingNumber() {
-		int frameNumber = getCurrentFrameNumber();
-		int rollingIndex = frames.get(frameNumber-1).getRollingIndex();
+		Frame currentFrame = getCurrentFrame();
+		int rollingIndex = currentFrame.getRollingIndex();
 		
 		return rollingIndex;
 	}
@@ -67,6 +83,11 @@ public class Game {
 		for (Frame frame : frames) {
 			play(frame);
 		}
+	}
+	
+	void playOneFrame() {
+		Frame frame = getCurrentFrame();
+		play(frame);
 	}
 	
 	private void play(Frame frame) {
@@ -82,7 +103,7 @@ public class Game {
 	}
 
 	private void pause() {
-		System.out.println("continue (Press Anykey)");
+		System.out.println(playerName+"Turn. continue (Press Anykey)");
 		showScoreBoard();
 		scanner.nextLine();
 	}

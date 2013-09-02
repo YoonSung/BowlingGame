@@ -9,7 +9,7 @@ public class GameTest {
 	
 	@Before
 	public void init() {
-		game = new Game();
+		game = new Game("윤성");
 		game.AutoPlayStart();
 	}
 	
